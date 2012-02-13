@@ -166,8 +166,6 @@ public class XMPPConnectionService extends Service {
 								mConnectionConfig);
 						try {
 							connection.connect();
-							System.out
-									.println(".........connection successed.........");
 							setCurrentConnection(connection, currentThreadId);
 						} catch (XMPPException ex) {
 							mIsConnected = false;
