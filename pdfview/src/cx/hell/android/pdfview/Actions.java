@@ -18,7 +18,7 @@ public class Actions {
 	public static final int LONG_ZOOM_OUT = 1000003;
 	public static final int TOP_TAP = 1000004;
 	public static final int BOTTOM_TAP = 1000005;
-	
+
 	public final static int ACTION_NONE = 0;
 	public final static int ACTION_SCREEN_DOWN = 1;
 	public final static int ACTION_SCREEN_UP = 2;
@@ -38,31 +38,48 @@ public class Actions {
 	public final static int ACTION_ZOOM_OUT_1200 = 16;
 	public final static int ACTION_ZOOM_OUT_1414 = 17;
 	public final static int ACTION_ZOOM_OUT_2000 = 18;
-	
+
 	public Actions(SharedPreferences pref) {
-		this.zoom = Integer.parseInt(pref.getString(Options.PREF_ZOOM_PAIR, ""+Options.PAIR_ZOOM_1414));
-		this.longZoom = Integer.parseInt(pref.getString(Options.PREF_LONG_ZOOM_PAIR, ""+Options.PAIR_ZOOM_2000));
-		this.upDown = Integer.parseInt(pref.getString(Options.PREF_UP_DOWN_PAIR, ""+Options.PAIR_SCREEN));
-		this.volume = Integer.parseInt(pref.getString(Options.PREF_VOLUME_PAIR, ""+Options.PAIR_SCREEN));
-		this.leftRight = Integer.parseInt(pref.getString(Options.PREF_UP_DOWN_PAIR, ""+Options.PAIR_PAGE));
-		this.rightUpDown = Integer.parseInt(pref.getString(Options.PREF_RIGHT_UP_DOWN_PAIR, ""+Options.PAIR_SCREEN));
-		this.topBottomTap = Integer.parseInt(pref.getString(Options.PREF_TOP_BOTTOM_TAP_PAIR, ""+Options.PAIR_NONE));
+		this.zoom = Integer.parseInt(pref.getString(Options.PREF_ZOOM_PAIR, ""
+				+ Options.PAIR_ZOOM_1414));
+		this.longZoom = Integer.parseInt(pref.getString(
+				Options.PREF_LONG_ZOOM_PAIR, "" + Options.PAIR_ZOOM_2000));
+		this.upDown = Integer.parseInt(pref.getString(
+				Options.PREF_UP_DOWN_PAIR, "" + Options.PAIR_SCREEN));
+		this.volume = Integer.parseInt(pref.getString(Options.PREF_VOLUME_PAIR,
+				"" + Options.PAIR_SCREEN));
+		this.leftRight = Integer.parseInt(pref.getString(
+				Options.PREF_UP_DOWN_PAIR, "" + Options.PAIR_PAGE));
+		this.rightUpDown = Integer.parseInt(pref.getString(
+				Options.PREF_RIGHT_UP_DOWN_PAIR, "" + Options.PAIR_SCREEN));
+		this.topBottomTap = Integer.parseInt(pref.getString(
+				Options.PREF_TOP_BOTTOM_TAP_PAIR, "" + Options.PAIR_NONE));
 	}
-	
+
+	public Actions() {
+		this.zoom = Options.PAIR_ZOOM_1414;
+		this.longZoom = Options.PAIR_ZOOM_2000;
+		this.upDown = Options.PAIR_SCREEN;
+		this.volume = Options.PAIR_SCREEN;
+		this.leftRight = Options.PAIR_PAGE;
+		this.rightUpDown = Options.PAIR_SCREEN;
+		this.topBottomTap = Options.PAIR_NONE;
+	}
+
 	public static float getZoomValue(int action) {
-		switch(action) {
+		switch (action) {
 		case ACTION_ZOOM_IN_1020:
-			return 1f/1.02f;
+			return 1f / 1.02f;
 		case ACTION_ZOOM_IN_1050:
-			return 1f/1.05f;
+			return 1f / 1.05f;
 		case ACTION_ZOOM_IN_1100:
-			return 1f/1.1f;
+			return 1f / 1.1f;
 		case ACTION_ZOOM_IN_1200:
-			return 1f/1.2f;
+			return 1f / 1.2f;
 		case ACTION_ZOOM_IN_1414:
-			return 1f/1.414f;
+			return 1f / 1.414f;
 		case ACTION_ZOOM_IN_2000:
-			return 1f/1.414f;
+			return 1f / 1.414f;
 		case ACTION_ZOOM_OUT_1020:
 			return 1.02f;
 		case ACTION_ZOOM_OUT_1050:
@@ -79,9 +96,9 @@ public class Actions {
 			return -1f;
 		}
 	}
-	
+
 	public static int getAction(int pairAction, int item) {
-		switch(pairAction) {
+		switch (pairAction) {
 		case Options.PAIR_SCREEN:
 			return item == 0 ? ACTION_SCREEN_UP : ACTION_SCREEN_DOWN;
 		case Options.PAIR_PAGE:
@@ -110,9 +127,9 @@ public class Actions {
 			return ACTION_NONE;
 		}
 	}
-	
+
 	public int getAction(int key) {
-		switch(key) {
+		switch (key) {
 		case TOP_TAP:
 			return getAction(this.topBottomTap, 0);
 		case BOTTOM_TAP:

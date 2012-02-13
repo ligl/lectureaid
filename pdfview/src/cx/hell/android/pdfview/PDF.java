@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.util.List;
 
-import cx.hell.android.lib.pagesview.FindResult;
+import cx.hell.android.pagesview.FindResult;
 
 /**
  * Native PDF - interface to native code.
