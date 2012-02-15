@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.jivesoftware.smack.AccountManager;
 import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.ConnectionListener;
 import org.jivesoftware.smack.PacketListener;
@@ -35,6 +36,7 @@ import android.net.NetworkInfo;
 import android.os.Binder;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
+import android.widget.Toast;
 import cn.ligl.lectureaid.R;
 import cn.ligl.lectureaid.activity.LoginActivity;
 import cn.ligl.lectureaid.util.Constant;
@@ -43,7 +45,8 @@ import cn.ligl.lectureaid.util.Utils;
 public class XMPPConnectionService extends Service {
 	private static final int DELAY = 10;
 	private static final int PRESENCE_PERIOD = 5 * 60000;
-	private XMPPConnection mConnection;
+	// private XMPPConnection mConnection;
+	private static XMPPConnection mConnection = null;
 	private boolean mIsConnected;
 	private PacketListener mBackgroundMsgPacketListener;
 	private PacketFilter mToFilter;
@@ -195,6 +198,7 @@ public class XMPPConnectionService extends Service {
 			String pwd = preferences.getString(Constant.PREFERENCES_LOGIN_PWD,
 					"");
 			try {
+				// TODO test create account
 				mConnection.login(userEmail, pwd);
 				sendConnectedBroadcast();
 				System.out.println(userEmail + " is login ok.");
@@ -377,7 +381,8 @@ public class XMPPConnectionService extends Service {
 		return mIsConnected;
 	}
 
-	public XMPPConnection getXmppConnection() {
+	public static XMPPConnection getXMPPConnectionInstance() {
+		// TODO use singleton
 		return mConnection;
 	}
 

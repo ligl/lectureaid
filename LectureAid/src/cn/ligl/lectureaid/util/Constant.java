@@ -13,6 +13,8 @@ public class Constant {
 	public static final String XMPP_SERVER_NAME = "lectureaid";
 	public static final String XMPP_SERVER_DOMAIN_NAME = "@localhost";
 
+	//XMPP error code 
+	public static final int XMPP_ERROR_CODE_CONFLICT = 409;
 	// XMPP message subject
 	public static final String XMPP_MESSAGE_TEXT = "text";
 	public static final String XMPP_MESSAGE_AUDIO = "audio";
@@ -35,4 +37,5 @@ public class Constant {
 	public static final String CONNECTION_CONFLICT_BROADCAST = "cn.ligl.lectureaid.accountconfilict";
 	public static final String CONNECTION_CLOSED_BROADCAST = "cn.ligl.lectureaid.connectionclosed";
 	public static final String INCOMMING_MESSAGE_BROADCAST = "cn.ligl.lectureaid.incommingmessage";
+	
 }
