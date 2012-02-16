@@ -1,41 +1,42 @@
 package cn.ligl.lectureaid.activity;
 
-import org.jivesoftware.smack.AccountManager;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.EditText;
+import cn.ligl.lectureaid.R;
 import cn.ligl.lectureaid.service.XMPPConnectionService;
-import cn.ligl.lectureaid.util.Constant;
 
 public class LoginActivity extends Activity {
+	private EditText mUserNameEt;
+	private EditText mPwdEt;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setTitle("login");
-		startService(new Intent(this, XMPPConnectionService.class));
+		setContentView(R.layout.activity_login);
+		mUserNameEt = (EditText) findViewById(R.id.et_login_username);
+		mPwdEt = (EditText) findViewById(R.id.et_login_pwd);
 	}
 
-	private void createAccount() {
-		String userName = "test";
-		String pwd = "0";
+	public void onLoginClick(View v) {
+		String userName = mUserNameEt.getText().toString().trim();
+		String pwd = mPwdEt.getText().toString().trim();
 		XMPPConnection con = XMPPConnectionService.getXMPPConnectionInstance();
-		AccountManager am = con.getAccountManager();
 		try {
-			am.createAccount(userName, pwd);
+			con.login(userName, pwd);
 		} catch (XMPPException e) {
-			if (e.getXMPPError().getCode() == Constant.XMPP_ERROR_CODE_CONFLICT) {
-				Toast.makeText(this, "conflict,please post another account",
-						Toast.LENGTH_SHORT).show();
-			}
-			System.out.println("account already exists.............."
-					+ e.getXMPPError().getCode());
+			// TODO deal exception
 			e.printStackTrace();
 		}
+	}
+
+	public void onSiginClick(View v) {
+		startActivity(new Intent(this, SigninActivity.class));
 	}
 
 }

@@ -9,13 +9,13 @@ package cx.hell.android;
 
 public final class R {
     public static final class anim {
-        public static final int page=0x7f030000;
-        public static final int page_almost_disappear=0x7f030001;
-        public static final int page_disappear=0x7f030002;
-        public static final int page_show_always=0x7f030003;
-        public static final int zoom=0x7f030004;
-        public static final int zoom_almost_disappear=0x7f030005;
-        public static final int zoom_disappear=0x7f030006;
+        public static final int page=0x7f040000;
+        public static final int page_almost_disappear=0x7f040001;
+        public static final int page_disappear=0x7f040002;
+        public static final int page_show_always=0x7f040003;
+        public static final int zoom=0x7f040004;
+        public static final int zoom_almost_disappear=0x7f040005;
+        public static final int zoom_disappear=0x7f040006;
     }
     public static final class attr {
     }
@@ -59,22 +59,45 @@ public final class R {
         public static final int red_btn_zoom_width_normal=0x7f020024;
         public static final int red_red_btn_zoom_up_selected=0x7f020025;
     }
+    public static final class id {
+        public static final int et_login_pwd=0x7f060001;
+        public static final int et_login_username=0x7f060000;
+        public static final int et_signin_email=0x7f060005;
+        public static final int et_signin_pwd=0x7f060003;
+        public static final int et_signin_repwd=0x7f060004;
+        public static final int et_signin_username=0x7f060002;
+    }
+    public static final class layout {
+        public static final int activity_login=0x7f030000;
+        public static final int activity_signin=0x7f030001;
+        public static final int activity_startup=0x7f030002;
+    }
     public static final class string {
-        public static final int app_name=0x7f040000;
-        public static final int cancel=0x7f04000c;
-        public static final int clear_find_text=0x7f04000b;
-        public static final int find_cancel_button=0x7f04000a;
-        public static final int find_dialog_title=0x7f040008;
-        public static final int find_go_button=0x7f040009;
-        public static final int find_text=0x7f040007;
-        public static final int goto_page=0x7f040002;
-        public static final int goto_page_dialog_title=0x7f040003;
-        public static final int goto_page_go_button=0x7f040004;
-        public static final int notification_connection_conflict=0x7f04000f;
-        public static final int page=0x7f040001;
-        public static final int page_of=0x7f04000e;
-        public static final int rotate_page_left=0x7f040005;
-        public static final int rotate_page_right=0x7f040006;
-        public static final int searching_for=0x7f04000d;
+        public static final int app_name=0x7f050000;
+        public static final int cancel=0x7f05000c;
+        public static final int clear_find_text=0x7f05000b;
+        public static final int find_cancel_button=0x7f05000a;
+        public static final int find_dialog_title=0x7f050008;
+        public static final int find_go_button=0x7f050009;
+        public static final int find_text=0x7f050007;
+        public static final int goto_page=0x7f050002;
+        public static final int goto_page_dialog_title=0x7f050003;
+        public static final int goto_page_go_button=0x7f050004;
+        public static final int login_hint_pwd=0x7f050011;
+        public static final int login_hint_username=0x7f050010;
+        public static final int login_label_login=0x7f050012;
+        public static final int login_label_signin=0x7f050013;
+        public static final int notification_connection_conflict=0x7f05000f;
+        public static final int page=0x7f050001;
+        public static final int page_of=0x7f05000e;
+        public static final int rotate_page_left=0x7f050005;
+        public static final int rotate_page_right=0x7f050006;
+        public static final int searching_for=0x7f05000d;
+        public static final int signin_hint_email=0x7f050017;
+        public static final int signin_hint_pwd=0x7f050014;
+        public static final int signin_hint_repwd=0x7f050015;
+        public static final int signin_hint_username=0x7f050016;
+        public static final int signin_label_signin=0x7f050018;
+        public static final int signin_toast_userexists=0x7f050019;
     }
 }

@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import org.jivesoftware.smack.AccountManager;
 import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.ConnectionListener;
 import org.jivesoftware.smack.PacketListener;
@@ -36,7 +35,6 @@ import android.net.NetworkInfo;
 import android.os.Binder;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
-import android.widget.Toast;
 import cn.ligl.lectureaid.R;
 import cn.ligl.lectureaid.activity.LoginActivity;
 import cn.ligl.lectureaid.util.Constant;
@@ -235,7 +233,9 @@ public class XMPPConnectionService extends Service {
 			@Override
 			public void processPacket(Packet packet) {
 				final Message message = (Message) packet;
-				System.out.println("service got text : " + message.toXML());
+				if (Constant.DEBUG) {
+					System.out.println("service got text : " + message.toXML());
+				}
 				if (message.getBody() != null) {
 					String subject = message.getSubject();
 					String messageBody = message.getBody();
